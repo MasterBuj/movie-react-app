@@ -1,7 +1,7 @@
 import Slider from "react-slick";
-import { GetGenreById, getColorVoteAverage } from "../helpers/MovieTools";
-import useFetch from '../hooks/useFetch';
-
+import { GetGenreById, getColorVoteAverage } from "../../helpers/MovieTools";
+import useFetch from '../../hooks/useFetch';
+import "./styles/HeroHeader.css";
 function HeroHeaderComponent() {
 
     const { data, loading, error } = useFetch("/api/v1/nowplaying/")
@@ -13,45 +13,18 @@ function HeroHeaderComponent() {
     if (error) return <p>{console.log(error.message)} THIS</p>
 
     const slickReact_Settings = {
-        dots: true,
         infinite: true,
-        speed: 200,
-        slidesToShow: 1,
-        slidesToScroll: 1
+        variableWidth: false,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: false
     }
 
     return (
         <header>
-            <div className="header-bar">
-                <div className="left-bar">
-                    <a href="#"><span className="logo">
-                        <p>D</p>
-                        <p>ovie</p>
-                        <p>D</p>
-                    </span>
-                    </a>
-                    <nav>
-                        <a className="nav-link">
-                            Now playing
-                        </a>
-                        <a className="nav-link">
-                            Popular
-                        </a>
-                        <a className="nav-link">
-                            Top rated
-                        </a>
-                        <a className="nav-link">
-                            Upcoming
-                        </a>
-                    </nav>
-                </div>
-                <form id="form">
-                    <div className="search">
-                        <input placeholder="Search..." type="text" id="search" />
-                        <button type="submit">Go</button>
-                    </div>
-                </form>
-            </div>
+
 
             <Slider {...slickReact_Settings}>
                 {
@@ -85,7 +58,8 @@ function HeroHeaderComponent() {
                                 </div>
                             </div>
                         )
-                    })}
+                    })
+                }
             </Slider>
         </header>
     )

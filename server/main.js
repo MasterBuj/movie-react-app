@@ -3,7 +3,7 @@ import movieDB from "./movies.js";
 
 const app = express();
 const PORT = 8080;
-const { popular, now_playing } = movieDB()
+const { popular, now_playing, movie_details } = movieDB()
 
 
 app.use(express.json());
@@ -14,6 +14,11 @@ app.get("/api/v1/popular/", (req, res) => {
 
 app.get("/api/v1/nowplaying/", (req, res) => {
   res.send(now_playing);
+})
+
+
+app.get("/api/v1/movie/:id", (req, res) => {
+  res.send(movie_details);
 })
 
 

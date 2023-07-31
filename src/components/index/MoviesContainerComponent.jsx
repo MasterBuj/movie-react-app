@@ -1,15 +1,21 @@
 
-import { getColorVoteAverage } from "../helpers/MovieTools";
-import useFetch from '../hooks/useFetch';
-
+import { useEffect } from "react";
+import { ChangeMovies, getColorVoteAverage } from "../../helpers/index";
+import { useFetch } from '../../hooks/index';
+import "./styles/MoviesContainer.css";
 
 function MoviesContainerComponent() {
+
+    const a = ChangeMovies()
+    useEffect(() => {
+        console.log(ChangeMovies())
+
+    }, [a])
 
     const { data, loading, error } = useFetch("/api/v1/popular/")
 
     // const response = data && data.data.results
     const response = data?.data?.results;
-
     if (loading) return <p>Loading...</p>
 
     if (error) return <p>{console.log(error.message)} THIS</p>
@@ -32,7 +38,12 @@ function MoviesContainerComponent() {
                             </h3>
 
                             <div className="overview">
-                                <a href="#">
+                                <a onClick={
+                                    (e) => {
+                                        e.preventDefault();
+                                        console.log("/", id)
+                                    }
+                                }>
                                     <h3>{title}</h3>
                                     <p>{release_date}</p>
                                     <p className="summary">

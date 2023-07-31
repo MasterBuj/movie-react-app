@@ -36,8 +36,8 @@ function useFetch(url) {
             })
     }
 
-
-    return { data, loading, error, refetch }
+    // console.log("from useFetch: ", data)
+    return { data, url, loading, error, refetch }
 }
 
 export default useFetch
