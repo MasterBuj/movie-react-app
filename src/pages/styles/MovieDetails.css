@@ -1,0 +1,36 @@
+.d-container {
+    background-color: #162032;
+    padding: 90px 0;
+    width: 80vw;
+    margin: auto;
+}
+
+.d-main {
+    background: #131720;
+    border-radius: 20px;
+    display: flex;
+    height: 70vh;
+    overflow-x: hidden;
+}
+
+.d-main::-webkit-scrollbar {
+    display: none;
+}
+
+.d-poster {
+    box-shadow: 4px 4px 15px 0px #262626;
+}
+
+.d-overview {
+    width: 100%;
+    padding: 30px
+}
+
+.d-title {
+    position: absolute;
+    bottom: 5px;
+    background: linear-gradient(1deg, #131720 0, rgb(36 36 40 / 0%) 100%, #24242800 100%), linear-gradient(358deg, #131720 0, rgb(36 36 40 / 0%) 90%, #24242800 100%), linear-gradient(357deg, #13172059 0, rgb(36 36 40 / 0%) 80%, #24242800 100%);
+    right: 0;
+    width: 75%;
+    padding-left: 35px;
+}
