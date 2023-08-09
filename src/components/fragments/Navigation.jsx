@@ -7,9 +7,8 @@ function Navigation() {
             <div className="left-bar">
                 <NavLink to="/">
                     <span className="logo">
-                        <p>D</p>
-                        <p>ovie</p>
-                        <p>D</p>
+                        <img src="/src/assets/localhost.svg" alt="" style={{ width: "140px" }} />
+
                     </span>
                 </NavLink>
                 <nav>

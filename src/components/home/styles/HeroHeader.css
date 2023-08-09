@@ -34,6 +34,7 @@ header {
 
 .hero-img img {
     height: 100%;
+    width: 100%;
 }
 
 .hero-img::before {
@@ -117,4 +118,47 @@ header {
 
 .hero-detail a:hover {
     color: #fff;
+}
+
+
+
+
+
+/* for tablet */
+@media screen and (max-width: 992px) {
+    header {
+        height: auto;
+        border-bottom-right-radius: 60px;
+    }
+
+    .desc,
+    .hero-more,
+    .genre-list {
+        display: none !important;
+    }
+
+    .hero-detail img {
+        width: 45%;
+    }
+
+    .hero-detail h1 {
+        font-size: 1rem;
+    }
+
+    .hero-img img {
+        height: auto;
+        width: 100%;
+    }
+
+
+    .hero-banner {
+        height: auto;
+    }
+}
+
+/* for mobile */
+@media screen and (max-width: 475px) {
+    .hero-detail img {
+        display: none !important;
+    }
 }

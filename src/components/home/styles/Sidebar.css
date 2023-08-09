@@ -1,0 +1,64 @@
+aside {
+    width: 90vw;
+}
+
+.genre-container {
+    margin: 15px;
+    background: var(--inactive);
+    border-radius: 15px;
+    padding: 15px;
+    color: #fff;
+}
+
+.genre-container .title {
+    margin-left: 45px;
+    cursor: pointer;
+}
+
+.genre-container .title::before {
+    content: "";
+    width: 30px;
+    height: 5px;
+    background: #fff;
+    position: absolute;
+    transform: translate(-40px, 8px);
+}
+
+
+
+/* for tablet */
+@media screen and (max-width: 992px) {
+    .genre-container {
+        margin: 15px;
+        background: none;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .genre-container .title {
+        margin-left: 0;
+    }
+
+    .genre-container .title::before {
+        display: none;
+    }
+
+    .tab {
+        display: flex;
+        gap: 15px;
+        margin: 0 20px;
+    }
+
+    .aside-tab {
+        display: none;
+    }
+
+    .aside-tab.active {
+        display: flex;
+    }
+
+
+}
+
+/* for mobile */
+@media screen and (max-width: 475px) {}

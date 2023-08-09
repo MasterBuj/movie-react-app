@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import { GetGenreById, getColorVoteAverage } from "../../helpers/MovieTools";
 import useFetch from '../../hooks/useFetch';
 import "./styles/HeroHeader.css";
+
 function HeroHeaderComponent() {
 
     const { data, loading, error } = useFetch("/api/v1/nowplaying/")
@@ -18,8 +19,9 @@ function HeroHeaderComponent() {
         pauseOnFocus: false,
         pauseOnHover: false,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 5000,
         arrows: false
+
     }
 
     return (
@@ -54,7 +56,7 @@ function HeroHeaderComponent() {
                                     <p className="desc">
                                         {overview}
                                     </p>
-                                    <a href="#">Show more </a>
+                                    <a href="#" className="hero-more">Show more </a>
                                 </div>
                             </div>
                         )

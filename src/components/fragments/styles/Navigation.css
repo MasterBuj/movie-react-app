@@ -1,61 +1,6 @@
-::-webkit-scrollbar {
-    width: 10px;
-    background: radial-gradient(black, transparent);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary);
-}
-
-::placeholder {
-    color: #fff;
-}
-
-* {
-    box-sizing: border-box;
-    transition: 0.2s ease-in-out;
-
-    --bg: #162032;
-    --primary: #0099ff;
-    --inactive: #131720;
-    --highlight: #06024d;
-}
-
-a {
-    text-decoration: none;
-    color: unset;
-    cursor: pointer;
-}
-
-
-
-
-body {
-
-    background-color: var(--bg);
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-}
-
-:root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-
-    color-scheme: light dark;
-    background-color: #242424;
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-}
-
 .header-bar {
     position: absolute;
     z-index: 10;
-    height: 70px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -125,13 +70,6 @@ nav {
     box-shadow: 10px 10px 0 #393939;
 }
 
-
-
-
-
-
-
-/* MARK Search bar */
 .search {
     display: inline-block;
     position: relative;
@@ -165,4 +103,23 @@ nav {
 .search button[type="submit"]:hover {
     width: 80px;
     background-color: #0099ffe8;
+}
+
+/* for tablet */
+@media screen and (max-width: 992px) {
+    nav {
+        display: none;
+    }
+
+    .header-bar {
+        position: unset;
+    }
+}
+
+/* for mobile */
+@media screen and (max-width: 475px) {
+    .header-bar {
+        flex-direction: column;
+        padding: 10px 0 20px 0;
+    }
 }

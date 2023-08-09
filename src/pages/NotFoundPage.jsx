@@ -25,7 +25,7 @@ function NotFoundPAge() {
           margin: '0',
           color: '#959595'
         }}>NOT FOUND</h2>
-
+      <h3>Oops! We can&apos;t find the page you&apos;re looking for</h3>
       <NavLink style={
         {
           padding: '10px',

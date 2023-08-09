@@ -1,18 +1,16 @@
 
-import { useEffect } from "react";
-import { ChangeMovies, getColorVoteAverage } from "../../helpers/index";
+import { useState } from "react";
+import { getColorVoteAverage } from "../../helpers/index";
 import { useFetch } from '../../hooks/index';
+import MovieDetails from "../../pages/MovieDetails";
 import "./styles/MoviesContainer.css";
 
 function MoviesContainerComponent() {
 
-    const a = ChangeMovies()
-    useEffect(() => {
-        console.log(ChangeMovies())
 
-    }, [a])
-
+    const [movieUrl, setMovieUrl] = useState("");
     const { data, loading, error } = useFetch("/api/v1/popular/")
+
 
     // const response = data && data.data.results
     const response = data?.data?.results;
@@ -20,10 +18,9 @@ function MoviesContainerComponent() {
 
     if (error) return <p>{console.log(error.message)} THIS</p>
 
-
     return (
 
-        <div className="container" id="content">
+        <section className="movies" id="content">
             {
                 response?.map(movie => {
                     const { id, title, vote_average, overview, poster_path, release_date } = movie
@@ -41,7 +38,8 @@ function MoviesContainerComponent() {
                                 <a onClick={
                                     (e) => {
                                         e.preventDefault();
-                                        console.log("/", id)
+                                        setMovieUrl(`/movie/${id}`)
+                                        movieUrl
                                     }
                                 }>
                                     <h3>{title}</h3>
@@ -56,8 +54,12 @@ function MoviesContainerComponent() {
                     )
                 })
             }
-        </div>
+
+            <MovieDetails isModal="true" movie={movieUrl} />
+
+        </section>
     )
+
 }
 
 export default MoviesContainerComponent

@@ -1,7 +1,8 @@
 .d-container {
     background-color: #162032;
     padding: 90px 0;
-    width: 80vw;
+    width: 95vw;
+    max-width: 1115px;
     margin: auto;
 }
 
@@ -10,7 +11,7 @@
     border-radius: 20px;
     display: flex;
     height: 70vh;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .d-main::-webkit-scrollbar {
@@ -19,11 +20,18 @@
 
 .d-poster {
     box-shadow: 4px 4px 15px 0px #262626;
+    height: 100%;
+}
+
+.d-backdrop {
+    width: 100%;
+    border-radius: 15px;
 }
 
 .d-overview {
     width: 100%;
-    padding: 30px
+    padding: 30px;
+    overflow: auto;
 }
 
 .d-title {
@@ -33,4 +41,15 @@
     right: 0;
     width: 75%;
     padding-left: 35px;
+}
+
+
+@media screen and (max-width: 992px) {
+    .d-poster {
+        display: none;
+    }
+
+    .d-overview h1 {
+        font-size: clamp(1.5rem, 2vw, 1.5rem);
+    }
 }
