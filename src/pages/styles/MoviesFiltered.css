@@ -1,0 +1,7 @@
+.filter-main {
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100em;
+    align-items: center;
+}

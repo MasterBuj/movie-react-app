@@ -30,6 +30,7 @@ function Navigation() {
                 <div className="search">
                     <input placeholder="Search..." type="text" id="search" />
                     <button type="submit">Go</button>
+                    {/* https://api.themoviedb.org/3/search/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&query=min */}
                 </div>
             </form>
         </div>

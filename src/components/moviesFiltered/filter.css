@@ -1,0 +1,15 @@
+section .filter {
+    width: 100%;
+    overflow: hidden;
+}
+
+.filter-genre {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.title {
+    color: #aaa;
+}

@@ -3,6 +3,7 @@ import Footer from "./components/fragments/Footer";
 import Navigation from "./components/fragments/Navigation";
 import Home from "./pages/Home";
 import MovieDetails from "./pages/MovieDetails";
+import MoviesFiltered from "./pages/MoviesFiltered";
 import NotFoundPage from "./pages/NotFoundPage";
 import "./styles/global.css";
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/moviedetails/:id" element={<MovieDetails />} />
+        <Route path="/search" element={<MoviesFiltered />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Outlet />

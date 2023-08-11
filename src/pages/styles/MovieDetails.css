@@ -34,6 +34,10 @@
     overflow: auto;
 }
 
+.d-overview p b {
+    color: #aaa;
+}
+
 .d-title {
     position: absolute;
     bottom: 5px;

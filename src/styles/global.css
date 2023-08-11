@@ -35,6 +35,17 @@ body {
     overflow-x: hidden;
 }
 
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -54,4 +65,16 @@ body {
     border: 0;
     font-size: 100%;
     font: inherit;
+}
+
+.button-wide {
+    padding: .5em 1em;
+    letter-spacing: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, .1);
+    border: none;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
 }
