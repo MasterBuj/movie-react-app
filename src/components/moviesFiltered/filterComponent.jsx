@@ -4,27 +4,22 @@ import { Link } from "react-router-dom";
 import { getGenre } from "../../helpers/genres";
 import "./filter.css";
 
-
 function MoviesFilter() {
-
-    const [selectedGenre, updateSelectedGenre] = useState([]);
 
     const qParams = new URLSearchParams(location.search)
     const selectedGenreParams = qParams.get("with_genres").split(",")
-
+    const [selectedGenre, updateSelectedGenre] = useState(selectedGenreParams);
 
     function handleGenre(e) {
-        if (selectedGenre.includes(e.target.innerText.toLowerCase)) {
-            updateSelectedGenre(selectedGenre.filter(item => item !== e.target.innerText.toLowerCase))
+        if (selectedGenre.includes(e.target.innerText.toLowerCase())) {
+            updateSelectedGenre(selectedGenre.filter(item => item !== e.target.innerText.toLowerCase()))
         } else {
-            updateSelectedGenre([...selectedGenre, e.target.innerText]);
-
+            updateSelectedGenre([...selectedGenre, e.target.innerText.toLowerCase()]);
         }
     }
 
     function params() {
         let genre = `&with_genres=${selectedGenre.toString().toLowerCase()}`
-
         return genre
     }
 
@@ -39,8 +34,7 @@ function MoviesFilter() {
                                 key={`${genre.id}_${genre.name}`}
                                 className={`
                                 color-tag genre
-                                ${selectedGenre.includes(genre.name) && "selected-genre"} 
-                                ${selectedGenreParams.indexOf(genre.name.toLowerCase()) > -1 && "selected-genre"}
+                                ${selectedGenre.includes(genre.name.toLowerCase()) && "selected-genre"}  
                                 `}
                                 onClick={handleGenre} >
                                 {genre.name}

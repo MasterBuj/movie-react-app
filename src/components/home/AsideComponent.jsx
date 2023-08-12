@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getGenre } from "../../helpers/index";
 import Accordion from "../fragments/Accordion";
-import "./styles/Sidebar.css";
+import "./styles/Aside.css";
 
 function SidebarComponent() {
 
@@ -34,7 +34,10 @@ function SidebarComponent() {
                     })}
                 </ul>
 
-                <Link className="button" to={`/search?&with_genres=${selectedGenre.toString().toLowerCase()}`} >Go</Link>
+                {selectedGenre.length >= 1 &&
+                    <Link className="button" to={`/search?&with_genres=${selectedGenre.toString().toLowerCase()}`} >Filter</Link>
+                }
+
 
             </div>
         );

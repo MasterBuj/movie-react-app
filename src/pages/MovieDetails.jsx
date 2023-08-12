@@ -17,8 +17,8 @@ function MovieDetails(props) {
   const url = id ? `https://api.themoviedb.org/3/movie/${id}?api_key=04c35731a5ee918f014970082a0088b1` : "/api/v1/movie/502356"
   // https://api.themoviedb.org/3/movie/{movie_id}&api_key=04c35731a5ee918f014970082a0088b1
 
-  console.log("Props: ", props)
-  console.log("URL: ", url)
+  // console.log("Props: ", props)
+  // console.log("URL: ", url)
   const { data, loading } = useFetch(url)
 
   const response = data?.data;
@@ -28,7 +28,8 @@ function MovieDetails(props) {
     style: 'currency',
     currency: 'USD',
   });
-
+  console.log(response)
+  console.log(url)
   return (
 
     <div className="d-container" id="modal">
@@ -51,7 +52,6 @@ function MovieDetails(props) {
 
               <h1 className='style-reset'>{response?.title}</h1>
               <p className='style-reset'><b><i>{response?.tagline}</i></b></p>
-              <p>{response?.release_date}</p>
               <ul className="all-tags">{
                 response?.genres.map(genre => {
                   return (
@@ -65,6 +65,7 @@ function MovieDetails(props) {
               }
               </ul>
               <p>{response?.overview}</p>
+              <p><b>Release Date: </b>{response?.release_date}</p>
               <p><b>Status: </b> {response?.status}</p>
               <p><b>Original Language: </b> {response?.original_language}</p>
               <p><b>Runtime: </b> {response?.runtime}m</p>

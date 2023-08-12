@@ -15,7 +15,7 @@ aside {
     flex-direction: column;
     padding: 10px;
     gap: 10px;
-    width: 1000px;
+    width: -webkit-fill-available;
     letter-spacing: 1px;
 }
 

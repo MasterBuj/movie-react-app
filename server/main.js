@@ -8,6 +8,10 @@ const { popular, now_playing, movie_details } = movieDB()
 
 app.use(express.json());
 
+app.get("/api/v1/popular/:search", (req, res) => {
+  res.send(popular);
+})
+
 app.get("/api/v1/popular/", (req, res) => {
   res.send(popular);
 })
@@ -23,7 +27,7 @@ app.get("/api/v1/movie/:id", (req, res) => {
 
 
 app.get("*", (req, res) => {
-  res.send("Hey There! are you loss?!");
+  res.status(404).send("Not Found");
 })
 
 
