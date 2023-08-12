@@ -28,8 +28,8 @@ function MovieDetails(props) {
     style: 'currency',
     currency: 'USD',
   });
-  console.log(response)
-  console.log(url)
+  // console.log(response)
+  // console.log(url)
   return (
 
     <div className="d-container" id="modal">
@@ -65,13 +65,26 @@ function MovieDetails(props) {
               }
               </ul>
               <p>{response?.overview}</p>
-              <p><b>Release Date: </b>{response?.release_date}</p>
+              <p><b>TMDB ID: </b>{response?.id}</p>
+              <p><b>IMBD ID: </b>{response?.imdb_id}</p>
+              <p><b>Original Title: </b>{response?.original_title}</p>
               <p><b>Status: </b> {response?.status}</p>
+              <p><b>Papularity: </b>{response?.popularity}</p>
+              <p><b>Vote Avarage: </b>{response?.vote_average} <b>/ 10 ({response?.vote_count})</b></p>
+              <p><b>Release Date: </b>{response?.release_date}</p>
               <p><b>Original Language: </b> {response?.original_language}</p>
               <p><b>Runtime: </b> {response?.runtime}m</p>
               <p><b>Budget: </b> {currency.format(response?.budget)}</p>
               <p><b>Revenue: </b> {currency.format(response?.revenue)}</p>
+              <p><b>Collection: </b> {response?.belongs_to_collection}</p>
               <p><b>Website: </b><a href={response?.homepage} target="_blank" rel="noopener noreferrer">{response?.homepage}</a></p>
+              {/* <p><b>Spoken Language: </b> {
+                response?.spoken_languages.map(value => {
+                  console.log(value.name)
+                  return (value.name)
+                })}</p>
+             <p><b>production_companies: </b> {response?.production_companies}</p>
+              <p><b>production_countries: </b> {response?.production_countries}</p> */}
             </div>
           </div>
         </>
