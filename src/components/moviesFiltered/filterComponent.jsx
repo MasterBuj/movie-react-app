@@ -7,8 +7,9 @@ import "./filter.css";
 function MoviesFilter() {
 
     const qParams = new URLSearchParams(location.search)
-    const selectedGenreParams = qParams.get("with_genres").split(",")
-    const [selectedGenre, updateSelectedGenre] = useState(selectedGenreParams);
+    const genreParams = qParams.get("with_genres")
+
+    const [selectedGenre, updateSelectedGenre] = useState(genreParams !== null ? genreParams.split(",") : []);
 
     function handleGenre(e) {
         if (selectedGenre.includes(e.target.innerText.toLowerCase())) {
@@ -18,10 +19,6 @@ function MoviesFilter() {
         }
     }
 
-    function params() {
-        let genre = `&with_genres=${selectedGenre.toString().toLowerCase()}`
-        return genre
-    }
 
     return (
         <>
@@ -42,7 +39,7 @@ function MoviesFilter() {
                         )
                     })}
                 </ul>
-                <Link className="submit button-wide" to={`/search?${params()}`}>Filter</Link>
+                <Link className="submit button-wide" to={`/discover/movie?with_genres=${selectedGenre.toString().toLowerCase()}}`}>Filter</Link>
             </section>
         </>
     )

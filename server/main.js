@@ -8,11 +8,13 @@ const { popular, now_playing, movie_details } = movieDB()
 
 app.use(express.json());
 
-app.get("/api/v1/popular/:search", (req, res) => {
+// search query=
+app.get("/api/v1/search/movie?query=", (req, res) => {
   res.send(popular);
 })
 
-app.get("/api/v1/popular/", (req, res) => {
+// genre &with_genres=
+app.get("/api/v1/discover/movie?with_genres=:genres", (req, res) => {
   res.send(popular);
 })
 

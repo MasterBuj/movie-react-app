@@ -1,14 +1,22 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import "./styles/Navigation.css"
 
 function Navigation() {
+
+    const navigate = useNavigate()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (e.target.search.value !== "")
+            navigate(`/search?query=${e.target.search.value}`)
+    }
+
     return (
         <div className="header-bar">
             <div className="left-bar">
                 <NavLink to="/">
                     <span className="logo">
                         <img src="/src/assets/localhost.svg" alt="" style={{ width: "140px" }} />
-
                     </span>
                 </NavLink>
                 <nav>
@@ -26,7 +34,7 @@ function Navigation() {
                     </NavLink>
                 </nav>
             </div>
-            <form id="form">
+            <form id="form" action="/search" method="GET" onSubmit={handleSubmit}>
                 <div className="search">
                     <input placeholder="Search..." type="text" id="search" />
                     <button type="submit">Go</button>
