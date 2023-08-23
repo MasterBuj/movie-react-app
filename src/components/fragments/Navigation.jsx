@@ -7,8 +7,11 @@ function Navigation() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (e.target.search.value !== "")
-            navigate(`/search?query=${e.target.search.value}`)
+
+        const searchQuery = e.target.search.value
+
+        if (searchQuery !== "")
+            navigate(`/search?query=${searchQuery}`)
     }
 
     return (
@@ -20,16 +23,16 @@ function Navigation() {
                     </span>
                 </NavLink>
                 <nav>
-                    <NavLink className="nav-link">
+                    <NavLink className="nav-link" to="/movies?list=nowplaying">
                         Now playing
                     </NavLink>
-                    <NavLink className="nav-link">
+                    <NavLink className="nav-link" to="/movies?list=popular">
                         Popular
                     </NavLink>
-                    <NavLink className="nav-link">
+                    <NavLink className="nav-link" to="/movies?list=toprated">
                         Top rated
                     </NavLink>
-                    <NavLink className="nav-link">
+                    <NavLink className="nav-link" to="/movies?list=upcoming">
                         Upcoming
                     </NavLink>
                 </nav>

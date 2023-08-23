@@ -1,21 +1,30 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { getGenre } from "../../helpers/genres";
 import "./filter.css";
 
+/**
+ * Renders a filter section for movies, allowing users to select genres and apply the filter to search for movies based on the selected genres.
+ *
+ * @returns {JSX.Element} The filter section for movies.
+ */
 function MoviesFilter() {
 
+    const location = useLocation()
     const qParams = new URLSearchParams(location.search)
     const genreParams = qParams.get("with_genres")
 
     const [selectedGenre, updateSelectedGenre] = useState(genreParams !== null ? genreParams.split(",") : []);
 
+    // local URL: Search by genre
+    const searchByGenre = `/search?&with_genres=${selectedGenre.toString()}`
+
     function handleGenre(e) {
-        if (selectedGenre.includes(e.target.innerText.toLowerCase())) {
-            updateSelectedGenre(selectedGenre.filter(item => item !== e.target.innerText.toLowerCase()))
+        if (selectedGenre.includes(e.target.id)) {
+            updateSelectedGenre(selectedGenre.filter(item => item !== e.target.id))
         } else {
-            updateSelectedGenre([...selectedGenre, e.target.innerText.toLowerCase()]);
+            updateSelectedGenre([...selectedGenre, e.target.id]);
         }
     }
 
@@ -25,13 +34,12 @@ function MoviesFilter() {
             <section className="filter">
                 <h4 className="title">Genres</h4>
                 <ul className="filter-genre">
-                    {getGenre().map(genre => {
+                    {getGenre.map(genre => {
                         return (
                             <li
                                 key={`${genre.id}_${genre.name}`}
-                                className={`
-                                color-tag genre
-                                ${selectedGenre.includes(genre.name.toLowerCase()) && "selected-genre"}  
+                                id={genre.id}
+                                className={`color-tag genre ${selectedGenre.includes(genre.id.toString()) && "selected-genre"}  
                                 `}
                                 onClick={handleGenre} >
                                 {genre.name}
@@ -39,7 +47,10 @@ function MoviesFilter() {
                         )
                     })}
                 </ul>
-                <Link className="submit button-wide" to={`/discover/movie?with_genres=${selectedGenre.toString().toLowerCase()}}`}>Filter</Link>
+                <NavLink
+                    className="submit button-wide"
+                    to={searchByGenre}
+                >Filter</NavLink>
             </section>
         </>
     )

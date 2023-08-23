@@ -1,7 +1,7 @@
 
 
 import Accordion from "../components/fragments/Accordion";
-import MoviesContainerComponent from "../components/home/MoviesContainerComponent";
+import MovieCards from "../components/home/MovieCardsComponent";
 import MoviesFilter from "../components/moviesFiltered/filterComponent";
 import './styles/MoviesFiltered.css';
 
@@ -12,7 +12,7 @@ function MoviesFiltered() {
         <>
             <main className="filter-main">
                 <Accordion title="Filter" content={<MoviesFilter />} expand={false} />
-                <MoviesContainerComponent />
+                <MovieCards />
             </main>
         </>
     )

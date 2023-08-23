@@ -1,10 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom";
 import Footer from "./components/fragments/Footer";
 import Navigation from "./components/fragments/Navigation";
-import Home from "./pages/Home";
-import MovieDetails from "./pages/MovieDetails";
-import MoviesFiltered from "./pages/MoviesFiltered";
-import NotFoundPage from "./pages/NotFoundPage";
+import { Home, MovieDetails, MoviesFiltered, NotFoundPage } from "./pages/index";
 import "./styles/global.css";
 function App() {
 
@@ -15,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/moviedetails/:id" element={<MovieDetails />} />
         <Route path="/search" element={<MoviesFiltered />} />
+        <Route path="/movies" element={<MoviesFiltered />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Outlet />

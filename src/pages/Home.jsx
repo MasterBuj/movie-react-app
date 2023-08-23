@@ -1,6 +1,6 @@
-import SidebarComponent from "../components/home/AsideComponent";
+import AsideComponent from "../components/home/AsideComponent";
 import HeroHeaderComponent from "../components/home/HeroHeaderComponent";
-import MoviesContainerComponent from "../components/home/MoviesContainerComponent";
+import MovieCards from "../components/home/MovieCardsComponent";
 import "./styles/Home.css";
 
 
@@ -10,8 +10,8 @@ function Home() {
         <>
             <HeroHeaderComponent />
             <main>
-                <SidebarComponent />
-                <MoviesContainerComponent />
+                <AsideComponent />
+                <MovieCards />
             </main>
         </>
     )

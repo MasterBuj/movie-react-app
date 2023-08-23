@@ -15,7 +15,7 @@ aside {
     flex-direction: column;
     padding: 10px;
     gap: 10px;
-    width: -webkit-fill-available;
+    max-width: 300px;
     letter-spacing: 1px;
 }
 
@@ -63,7 +63,7 @@ aside {
     aside {
         flex-direction: row;
         overflow: auto;
-        width: auto;
+        width: -webkit-fill-available;
     }
 
     .accordion-item {

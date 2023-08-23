@@ -1,11 +1,15 @@
+import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
+import api_query, { API_IMAGE_BASE } from "../../helpers/APIs";
 import { GetGenreById, getColorVoteAverage } from "../../helpers/MovieTools";
 import useFetch from '../../hooks/useFetch';
 import "./styles/HeroHeader.css";
 
+
 function HeroHeaderComponent() {
 
-    const { data, loading, error } = useFetch("/api/v1/nowplaying/")
+
+    const { data, loading, error } = useFetch(api_query({ action: "getNowPlaying" }))
 
     const response = data?.data?.results;
 
@@ -36,10 +40,13 @@ function HeroHeaderComponent() {
                         return (
                             <div className="hero-banner" key={movie.id}>
                                 <div className="hero-img">
-                                    <img src={backdrop_path} alt="Hero banner" />
+                                    <img src={API_IMAGE_BASE + backdrop_path} alt="Hero banner" />
                                 </div>
                                 <div className="hero-detail">
-                                    <img src={poster_path} alt="" />
+                                    <NavLink
+                                        className="hero-more"
+                                        to={`/moviedetails/${movie.id}`}
+                                    ><img src={API_IMAGE_BASE + poster_path} alt="" /> </NavLink>
                                     <h1>{title}</h1>
                                     <div className="subtitle">
                                         <p>{release_date.slice(0, 4)}</p>
@@ -47,8 +54,11 @@ function HeroHeaderComponent() {
                                         <p className="genre-list">
                                             {GetGenreById(genre_ids).map(genre => {
                                                 return (
-                                                    <a key={`${genre.id}_${genre.name}`} className="hero-genr
-                                                    e">{genre.name}</a>
+                                                    <NavLink
+                                                        key={`${genre.id}_${genre.name}`}
+                                                        className="hero-genre"
+                                                        to={`/search?&with_genres=${genre.id}`}
+                                                    >{genre.name}</NavLink>
                                                 )
                                             })}
                                         </p>
@@ -56,7 +66,10 @@ function HeroHeaderComponent() {
                                     <p className="desc">
                                         {overview}
                                     </p>
-                                    <a href="#" className="hero-more">Show more </a>
+                                    <NavLink
+                                        className="hero-more"
+                                        to={`/moviedetails/${movie.id}`}
+                                    >Show more</NavLink>
                                 </div>
                             </div>
                         )
