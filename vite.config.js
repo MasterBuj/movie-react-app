@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/movie-app/",
+  base: "/movie-react-app/",
   server: {
     host: true,
     proxy: {
