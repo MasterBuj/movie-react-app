@@ -9,7 +9,7 @@ function App() {
     <>
       <Navigation />
       <Routes>
-        <Route path="/movie-react-app" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/moviedetails/:id" element={<MovieDetails />} />
         <Route path="/search" element={<MoviesFiltered />} />
         <Route path="/movies" element={<MoviesFiltered />} />
