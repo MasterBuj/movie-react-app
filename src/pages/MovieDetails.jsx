@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import api_query, { API_IMAGE_BASE } from "../helpers/APIs";
 import { useFetch } from '../hooks/index';
 import "./styles/MovieDetails.css";
@@ -11,8 +11,7 @@ MovieDetails.propTypes = {
 };
 
 function MovieDetails(props) {
-  const { movieId } = useParams();
-
+  const movieId = location.pathname.split("/")[2]
   const url = movieId ? api_query({
     action: "getMovieDetails",
     movieId: movieId
