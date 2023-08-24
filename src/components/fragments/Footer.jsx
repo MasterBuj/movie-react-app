@@ -17,7 +17,7 @@ function Footer() {
                 }} />
                 <div>
                     <p>powered by:</p>
-                    <img src="/src/assets/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="" style={{
+                    <img src="/src/assets/TMDB-square.svg" alt="" style={{
                         width: '140px',
                         marginBottom: '10px'
                     }} />
